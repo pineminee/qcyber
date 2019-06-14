@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {{include 'web2py_ajax.html'}}
+    <!-- CSS -->
+    {{
+        response.files.append(URL('static', 'css/bootstrap.min.css'))
+        response.files.append(URL('static', 'css/wiki.css'))
+    }}
+
+    {{include 'web2py_ajax.html'}}
+
+
+    <title>Randonaut Wiki</title>
+  </head>
+
+  <body class="d-flex flex-column">
+    <!-- As a heading -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <span class="navbar-brand mb-0 h1">Random Wiki</span>
+      <a class="nav-link github-link" href="#">github</a>
+      <ul class="navbar-nav ml-auto">
+        <button id="ran-wiki-button" onclick="ajax('{{=URL('test')}}',[],'siteloader');" class="btn btn-outline-warning" type="button">
+        	Go
+        </button>
+
+      </ul>
+
+  </nav>
+      
+
+
+
+  </body>
+
+
+</html>
