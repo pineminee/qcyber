@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+      {{
+      response.files.append(URL('static', 'css/bootstrap.min.css'))
+      }}
+
+      {{include 'web2py_ajax.html'}}
+
+    <title>Randonaut Cyberspace</title>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <h1>Randonaut Cyberspace</h1><br>
+      <a href="{{=URL('qwiki', 'main')}}">wikipedia</a><br>
+      <a href="{{=URL('qreddit', 'main')}}">reddit</a><br>
+    </div>
+
+  </body>
+
+
+</html>

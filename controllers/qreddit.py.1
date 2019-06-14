@@ -1,0 +1,37 @@
+# -*- coding: utf-8 -*-
+# try something like
+
+import requests
+from random import randint
+
+def main():
+    session.links = []
+    return dict(message="hello from qreddit.py")
+
+def fetch():
+    '''
+            fetch random number from quantum random number generator
+
+            There are 1082444 articles
+			numbers are generated between 0 and 65535
+
+			I generate 16 numbers and get a summation of their numbers
+		    Then I add 16 to that sum
+
+	'''
+    # rsum = randint(1, 1082444)
+    logger.debug('sent request to anu')
+    r = requests.get("https://qrng.anu.edu.au/API/jsonI.php?length=16&type=uint16").json()
+    rsum = sum(r['data'])
+    rsum = rsum + 16
+
+    logger.debug(rsum)
+
+    # sql query
+    rsite = db(db.subreddits.id == rsum).select()[0].site
+    rsite = 'https://www.reddit.com/r/' + rsite
+    logger.debug(rsite)
+    session.links.append(rsite)
+
+    logger.debug('test button end')
+    return TABLE([A(v, _href=v, _target="_blank") for v in session.links]).xml()

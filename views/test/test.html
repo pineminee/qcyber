@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    {{
+        response.files.append(URL('static', 'css/bootstrap.min.css'))
+        response.files.append(URL('static', 'css/wiki.css'))
+    }}
+
+    {{include 'web2py_ajax.html'}}
+
+
+    <title>test</title>
+  </head>
+
+  <body>
+    
+        <button id="go" type="button">Click Me!</button>
+     
+    
+    <script>
+      $(document).ready( function () {
+          // load random page
+          $("#go").click(function(){
+              console.log('go')
+
+          });
+          console.log('on')
+
+          ajax('{{=URL('fetch')}}',[],'target');
+      });
+      
+    </script>
+
+  </body>
+
+
+</html>

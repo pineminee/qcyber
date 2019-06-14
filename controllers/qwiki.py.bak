@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    {{
+        response.files.append(URL('static', 'css/bootstrap.min.css'))
+        response.files.append(URL('static', 'css/wiki.css'))
+    }}
+
+    {{include 'web2py_ajax.html'}}
+
+
+    <title>Randonaut Wiki</title>
+
+    <script>
+
+          // load random page
+          function go() {
+              // loading symbol
+              $('#go').html('<span class="spinner-border spinner-border-sm" role="status"></span><span class="sr-only">Loading...</span>')
+              console.log('go')
+              ajax('{{=URL('fetch')}}',[],'target');
+
+          }
+          console.log('on')
+
+    </script>
+  </head>
+
+  <body class="d-flex flex-column">
+    <div id='target'>
+        <!-- As a heading -->
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+          <span class="navbar-brand mb-0 h1">RandWiki</span>
+          <a class="nav-link github-link" href="#">github</a>
+          <ul class="navbar-nav ml-auto">
+            <button onclick="go()" id="go" class="btn btn-outline-warning" type="button">
+                go
+            </button>
+          </ul>
+
+        </nav>
+
+        <!-- link list container -->
+        <div class="container-fluid flex-fill" id='siteloader'>
+        </div>
+
+    </div>
+
+
+  </body>
+
+
+</html>
